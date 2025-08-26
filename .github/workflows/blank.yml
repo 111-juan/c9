@@ -48,4 +48,7 @@ jobs:
             aws-region: us-east-1
             
      - name: List buckets
-       run: aws s3 ls
+       run: aws s3 ls       
+       
+     - name: Upload buckets
+       run: aws s3 cp utils.py s3://clase5-4/
