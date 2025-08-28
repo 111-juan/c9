@@ -47,8 +47,13 @@ jobs:
             aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
             aws-region: us-east-1
             
-     - name: List buckets
-       run: aws s3 ls       
+     - name: List Buckets
+       run: aws s3 ls
        
      - name: Upload buckets
        run: aws s3 cp utils.py s3://clase5-4/
+       
+     - name: Deploy or update zappa
+       run: |
+          source venv/bin/activate
+          zappa deploy dev
